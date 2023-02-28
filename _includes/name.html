@@ -7,10 +7,6 @@
     {%-endif%}
     {% if p.engname %}<span class="engname">{{p.engname}}</span>{% endif %}
     {% if p.mathgen %}
-        <span class="engname">
-          <a target="data" href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id={{p.mathgen}}">🌿</a>
-        </span>{%endif%}
+        <a target="data" href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id={{p.mathgen}}">🌿</a>{%endif%}
     {% if p.mrauthid %}
-        <span class="engname">
-          <a target="data" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid={{p.mrauthid}}">📚</a>
-        </span>{%endif%}
+        <a target="data" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid={{p.mrauthid}}">📚</a>{%endif%}
