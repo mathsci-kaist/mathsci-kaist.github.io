@@ -1,0 +1,10 @@
+<div class="row alumniindex">
+    <div class="col-sm-4 name" id="{{p.korname}}">
+        {%include name.html%}
+    </div>
+    <div class="col-sm-8">{{p.aff|strip_html}}
+
+        {%include class.html bs=include.bs ms=include.ms phd=include.phd %}
+        </div>
+    </div> 
+</div>

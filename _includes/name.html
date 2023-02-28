@@ -1,0 +1,9 @@
+    {%- if p.website -%}
+        <a href="{{p.website}}">
+    {%-endif-%}
+    {{p.korname}}
+    {%-if p.website -%}
+        </a>
+    {%-endif%}
+
+    {% if p.engname %}<span class="engname">{{p.engname}}</span>{% endif %}

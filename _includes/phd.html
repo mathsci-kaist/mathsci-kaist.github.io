@@ -7,20 +7,7 @@
 {%- for p in people -%}
 {%- if p.hide -%} 
 {%- else -%}
-<div class="row alumniindex">
-<div class="col-sm-2 name" id="{{p.korname}}">
-    {%- if p.website -%}<a href="{{p.website}}">{%-
-        endif-%}{{p.korname}}
-        {%-if p.website -%}</a>{%-endif-%}</div>
-<div class="col-sm-5">{{p.aff|strip_html}}</div>
-<div class="col-sm-5">
-    {% if p.bs %} 학사 {{p.bs}}학번. {%endif%}
-    {% if p.ms %} 석사 {{p.ms}}학번. {%endif%}
-    {% if p.advisor %} ({{p.advisor}}) {%endif%}
-    {% if st.mathgen %}
-    <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id={{st.mathgen}}">🎓</a>{%endif%}   
-    </div>
-</div>
+{%include person.html bs=p.bs ms=p.ms  %}
 {%- endif -%}
 {%- endfor -%}
 {%- endif -%}
