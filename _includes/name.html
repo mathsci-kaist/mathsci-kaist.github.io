@@ -5,5 +5,6 @@
     {%-if p.website -%}
         </a>
     {%-endif%}
-
     {% if p.engname %}<span class="engname">{{p.engname}}</span>{% endif %}
+    {% if p.mathgen %}
+        <a target="data" href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id={{p.mathgen}}">🌲</a>{%endif%}
