@@ -7,7 +7,7 @@
 {%- for p in people -%}
 {%- if p.hide -%}
 {%- else -%}
-{%include person.html bs=p.bs   %}
+{%include person.html bs=p.bs phd=p.phd  %}
 {%- endif -%}
 {%- endfor -%}
 {%- endif -%}

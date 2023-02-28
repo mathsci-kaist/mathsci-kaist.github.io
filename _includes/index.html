@@ -3,6 +3,6 @@
 {%- for p in people -%}
 {%- if p.hide -%} 
 {%- else -%}
-{%include person.html bs=p.bs ms=p.ms phd=p.phd  %}
+{%include person.html bs=p.bs ms=p.ms phd=p.phd advisor=p.advisor  %}
 {%- endif -%}
 {%- endfor -%}
