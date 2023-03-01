@@ -1,4 +1,4 @@
-{%- assign people = site.data.people | times: 1 | where: p.hide, nil|sort: "mrauthorid"|reverse -%}
+{%- assign people = {site.data.people | times: 1} | where: p.hide, nil|sort: "mrauthorid"|reverse -%}
 
 {%- for p in people -%}
 {%- if p.hide -%} 
