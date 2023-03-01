@@ -1,4 +1,4 @@
-{%- assign people = site.data.people|where: p.hide, nil|sort: "mrauthid"|reverse -%}
+{%- assign people = site.data.people|where: p.hide, nil|sort: "mrauthid"|plus: 10000000|reverse -%}
 
 {%- for p in people -%}
 {%- if p.hide -%} 
