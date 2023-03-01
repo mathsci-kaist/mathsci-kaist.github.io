@@ -3,7 +3,7 @@
 {%- for year in years -%} 
 {%- if year -%}
 {%- assign people = site.data.people|where: "bs",year|sort: "korname" -%}
-<h2>학사 {{year}}학번</h2>
+<h2 id="{{year}}">학사 {{year}}학번</h2>
 {%- for p in people -%}
 {%- if p.hide -%} 
 {%- else -%}
