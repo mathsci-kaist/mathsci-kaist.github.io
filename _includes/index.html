@@ -1,4 +1,6 @@
-{%- assign people = site.data.people | where: p.hide, nil | sort: "mrauthorid" | reverse -%}
+{%- assign people1 = site.data.people | where: hide, nil | where_exp: "p", "p.korname > 'zzzzz'" | sort: "korname"  -%}
+{%- assign people2 = site.data.people | where: hide, nil | where_exp: "p", "p.korname <= 'zzzzz'" | sort: "korname" -%}
+{%- assign people = people1 | concat: people2 -%}
 
 {%- for p in people -%}
 {%- if p.hide -%} 
