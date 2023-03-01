@@ -2,11 +2,12 @@
         <a target="data" href="{{p.website}}">
     {%-endif-%}
     {{p.korname}}
+    {% if p.engname %}<span class="engname">{{p.engname}}</span>{%-endif-%}
     {%-if p.website -%}
         </a>
-    {%-endif%}
-    {% if p.engname %}<span class="engname">{{p.engname}}</span>{% endif %}
+    {%endif%}
+
     {% if p.mathgen %}
-        <a target="data" href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id={{p.mathgen}}">🌿</a>{%endif%}
-    {% if p.mrauthid %}
-        <a target="data" href="https://mathscinet.ams.org/mathscinet/MRAuthorID/{{p.mrauthid}}">📚</a>{%endif%}
+        <a target="data" class="ext" href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id={{p.mathgen}}">🌿</a>{%-endif-%}
+    {%- if p.mrauthid -%}
+        <a target="data" class="ext" href="https://mathscinet.ams.org/mathscinet/MRAuthorID/{{p.mrauthid}}">📚</a>{%endif%}
