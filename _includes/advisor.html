@@ -7,7 +7,7 @@
 {%- assign advisors= advisors1 | concat: advisors2 -%}
 {%- for advisor in advisors -%} 
 {%- if advisor -%}
-{%- assign people = site.data.people|where: "advisor",advisor|sort: "korname" -%}
+{%- assign people = site.data.people|where: "advisor",advisor|sort: "phd" -%}
 <h2 id="{{advisor}}">{{advisor}} 교수</h2>
 {%- for p in people -%}
 {%- if p.hide -%} 
