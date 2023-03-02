@@ -5,14 +5,14 @@
     {% if p.engname %}<span class="engname">{{p.engname}}</span>{% endif %}
     {%-if p.website -%}
         </a>
-    {% endif %}
+    {%- endif -%}
 
-    {%- if p.mathgen -%}
+    {% if p.mathgen %}
         <a target="data" class="ext" title="Mathematics Genealogy" href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id={{p.mathgen}}">🎓</a>
     {%- endif -%}
-    {%- if p.mrauthid -%}
+    {% if p.mrauthid %}
         <a target="data" class="ext" title="MathSciNet" href="https://mathscinet.ams.org/mathscinet/MRAuthorID/{{p.mrauthid}}">🌿</a>
     {%- endif -%}
-    {%- if p.scholar -%}
+    {% if p.scholar %}
         <a target="data" class="ext" title="Google Scholar" href="https://scholar.google.com/citations?user={{p.scholar}}">📚</a>
     {%- endif -%}
