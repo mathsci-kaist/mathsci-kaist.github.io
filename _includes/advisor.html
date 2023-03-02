@@ -1,13 +1,21 @@
 {%- assign people1 = site.data.people | where: hide, nil | where_exp: "p", "p.korname > 'zzzzz'" | sort: "korname"  -%}
 {%- assign people2 = site.data.people | where: hide, nil | where_exp: "p", "p.korname <= 'zzzzz'" | sort: "korname" -%}
 
-{%- assign advisorsall = site.data.people|sort:"advisor"|map: "advisor" |uniq -%}
-{%- assign advisors1 = advisorsall | where_exp: "p", "p > 'zzzzz'"  -%}
-{%- assign advisors2 = advisorsall | where_exp: "p", "p < 'zzzzz'"  -%}
-{%- assign advisors= advisors1 | concat: advisors2 -%}
+{%- assign advisorsall = site.data.people|map: "advisor"   -%}
+{%- assign advisorsall2 = site.data.people|map: "advisor2"   -%}
+{%- assign advisorsall = advisorsall | uniq -%}
+{%- assign advisors1 = advisorsall | where_exp: "p", "p > 'zzzzz'"  |sort -%}
+{%- assign advisors2 = advisorsall | where_exp: "p", "p < 'zzzzz'" |sort  -%}
+{%- if advisors2 -%} 
+    {%- assign advisors= advisors1 | concat: advisors2 -%}
+{%- else -%} 
+    {%- assign advisors = advisors1 -%} 
+{%- endif -%}
 {%- for advisor in advisors -%} 
 {%- if advisor -%}
-{%- assign people = site.data.people|where: "advisor",advisor|sort: "phd" -%}
+{%- assign people1 = site.data.people|where: "advisor",advisor -%}
+{%- assign people2 = site.data.people|where: "advisor2",advisor -%}
+{%- assign people = people1 | concat: people2  | sort: "phd" -%}
 <h2 id="{{advisor}}">{{advisor}} 교수</h2>
 {%- for p in people -%}
 {%- if p.hide -%} 

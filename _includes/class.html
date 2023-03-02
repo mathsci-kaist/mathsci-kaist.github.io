@@ -2,5 +2,8 @@
 {% if include.bs %} <a href="undergraduate.html#{{include.bs}}">학{{include.bs}}학번</a> {%endif%}
 {% if include.ms %} <a href="master.html#{{include.ms}}">석{{include.ms}}학번</a> {%endif%}
 {% if include.phd %} <a href="phd.html#{{include.phd}}">박{{include.phd}}년졸업</a> {%endif%}
-{% if include.advisor %} <a href="advisor.html#{{include.advisor}}">({{include.advisor}})</a> {%endif%}
+{% if include.advisor %} (<a href="advisor.html#{{include.advisor}}">{{include.advisor}}</a>
+    {%- if include.advisor2 -%} ,<a href="advisor.html#{{include.advisor2}}">{{include.advisor2}}</a>
+    {%- endif -%}
+) {%endif%}
 </span>
