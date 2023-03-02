@@ -1,11 +1,11 @@
 {%- assign people1 = site.data.people | where: hide, nil | where_exp: "p", "p.korname > 'zzzzz'" | sort: "korname"  -%}
 {%- assign people2 = site.data.people | where: hide, nil | where_exp: "p", "p.korname <= 'zzzzz'" | sort: "korname" -%}
 
-{%- assign advisorsall = site.data.people|map: "advisor"   -%}
+{%- assign advisorsall1 = site.data.people|map: "advisor"   -%}
 {%- assign advisorsall2 = site.data.people|map: "advisor2"   -%}
-{%- assign advisorsall = advisorsall | uniq -%}
-{%- assign advisors1 = advisorsall | where_exp: "p", "p > 'zzzzz'"  |sort -%}
-{%- assign advisors2 = advisorsall | where_exp: "p", "p < 'zzzzz'" |sort  -%}
+{%- assign advisorsall = advisorsall1 | concat: advisorsall2  -%}
+{%- assign advisors1 = advisorsall |uniq | where_exp: "p", "p > 'zzzzz'"  |sort -%}
+{%- assign advisors2 = advisorsall |uniq | where_exp: "p", "p < 'zzzzz'" |sort  -%}
 {%- if advisors2 -%} 
     {%- assign advisors= advisors1 | concat: advisors2 -%}
 {%- else -%} 
