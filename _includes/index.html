@@ -1,10 +1,7 @@
-{%- assign people1 = site.data.people | where: hide, nil | where_exp: "p", "p.korname > 'zzzzz'" | sort: "korname"  -%}
-{%- assign people2 = site.data.people | where: hide, nil | where_exp: "p", "p.korname <= 'zzzzz'" | sort: "korname" -%}
+{%- assign people1 = site.data.people | where_exp: "p", "p.hide == nil" | where_exp: "p", "p.korname > 'zzzzz'" | sort: "korname"  -%}
+{%- assign people2 = site.data.people | where_exp: "p", "p.hide == nil" | where_exp: "p", "p.korname <= 'zzzzz'" | sort: "korname" -%}
 {%- assign people = people1 | concat: people2 -%}
 
 {%- for p in people -%}
-{%- if p.hide -%} 
-{%- else -%}
 {%include person.html bs=p.bs ms=p.ms phd=p.phd advisor=p.advisor advisor2=p.advisor2  %}
-{%- endif -%}
 {%- endfor -%}

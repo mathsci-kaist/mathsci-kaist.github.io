@@ -1,5 +1,5 @@
-{%- assign people1 = site.data.people | where: hide, nil | where_exp: "p", "p.korname > 'zzzzz'" | sort: "korname"  -%}
-{%- assign people2 = site.data.people | where: hide, nil | where_exp: "p", "p.korname <= 'zzzzz'" | sort: "korname" -%}
+{%- assign people1 = site.data.people | where_exp: "p", "p.hide == nil" | where_exp: "p", "p.korname > 'zzzzz'" | sort: "korname"  -%}
+{%- assign people2 = site.data.people | where_exp: "p", "p.hide == nil"| where_exp: "p", "p.korname <= 'zzzzz'" | sort: "korname" -%}
 
 {%- assign advisorsall1 = site.data.people|map: "advisor"   -%}
 {%- assign advisorsall2 = site.data.people|map: "advisor2"   -%}
@@ -13,15 +13,12 @@
 {%- endif -%}
 {%- for advisor in advisors -%} 
 {%- if advisor -%}
-{%- assign people1 = site.data.people|where: "advisor",advisor -%}
-{%- assign people2 = site.data.people|where: "advisor2",advisor -%}
+{%- assign people1 = site.data.people| where_exp: "p", "p.hide == nil"|where: "advisor",advisor -%}
+{%- assign people2 = site.data.people| where_exp: "p", "p.hide == nil"|where: "advisor2",advisor -%}
 {%- assign people = people1 | concat: people2  | sort: "phd" -%}
 <h2 id="{{advisor}}">{{advisor}} 교수</h2>
 {%- for p in people -%}
-{%- if p.hide -%} 
-{%- else -%}
 {%include person_thesis.html bs=p.bs ms=p.ms phd=p.phd  %}
-{%- endif -%}
 {%- endfor -%}
 {%- endif -%}
 {%- endfor -%}

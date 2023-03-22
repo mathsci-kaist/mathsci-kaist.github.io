@@ -1,14 +1,14 @@
 
-{%- assign years = site.data.people |sort:"bs"|map: "bs" |uniq|reverse -%}
+{%- assign years = site.data.people|where_exp: "p", "p.hide == nil" |sort:"bs"|map: "bs" |uniq|reverse -%}
 {%- for year in years -%} 
 {%- if year -%}
-{%- assign people = site.data.people|where: "bs",year|sort: "korname" -%}
+{%- assign people0 = site.data.people|where_exp: "p", "p.hide == nil"| where: "bs",year  -%}
+{%- assign people1 = people0 | where_exp: "p", "p.korname > 'zzzzz'" | sort: "korname"  -%}
+{%- assign people2 = people0 | where_exp: "p", "p.korname <= 'zzzzz'" | sort: "korname" -%}
+{%- assign people = people1 | concat: people2 -%}
 <h2 id="{{year}}">학사 {{year}}학번</h2>
 {%- for p in people -%}
-{%- if p.hide -%} 
-{%- else -%}
 {%include person.html ms=p.ms phd=p.phd %}
-{%- endif -%}
 {%- endfor -%}
 {%- endif -%}
 {%- endfor -%}
