@@ -1,8 +1,8 @@
 {%- assign people1 = site.data.people | where_exp: "p", "p.hide == nil" | where_exp: "p", "p.korname > 'zzzzz'" | sort: "korname"  -%}
 {%- assign people2 = site.data.people | where_exp: "p", "p.hide == nil"| where_exp: "p", "p.korname <= 'zzzzz'" | sort: "korname" -%}
 
-{%- assign advisorsall1 = site.data.people|map: "advisor"   -%}
-{%- assign advisorsall2 = site.data.people|map: "advisor2"   -%}
+{%- assign advisorsall1 = site.data.people| where_exp: "p", "p.hide == nil"|map: "advisor" |uniq  -%}
+{%- assign advisorsall2 = site.data.people| where_exp: "p", "p.hide == nil"|map: "advisor2" |uniq  -%}
 {%- assign advisorsall = advisorsall1 | concat: advisorsall2  -%}
 {%- assign advisors1 = advisorsall |uniq | where_exp: "p", "p > 'zzzzz'"  |sort -%}
 {%- assign advisors2 = advisorsall |uniq | where_exp: "p", "p < 'zzzzz'" |sort  -%}
