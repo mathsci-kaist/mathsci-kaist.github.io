@@ -8,5 +8,7 @@ menu:
   url: /master.html
 - title: 박사동문
   url: /phd.html
+- title: 박사지도교수별
+  url: /advisor.html
 - title: 새로운 소식
   url: /latest.html
