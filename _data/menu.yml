@@ -1,0 +1,12 @@
+menu:
+
+- title: 전체 
+  url: /
+- title: 학사동문
+  url: /undergraduate.html
+- title: 석사동문
+  url: /master.html
+- title: 박사동문
+  url: /phd.html
+- title: 새로운 소식
+  url: /latest.html

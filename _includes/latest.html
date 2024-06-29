@@ -1,0 +1,10 @@
+{%- assign people = site.data.people | where_exp: "p", "p.hide == nil" | where_exp: "p", "p.update > '202301'" | sort: "update" |reverse -%}
+
+{%- assign late="" -%}
+{%- for p in people -%}
+    {% if p.update != late %}
+        {%- assign late = p.update -%}
+        <h2>{{late|slice:0,4}}년 {{late|slice:4,2}}월</h2>
+    {% endif %}
+{%include person.html bs=p.bs ms=p.ms phd=p.phd advisor=p.advisor advisor2=p.advisor2  %}
+{%- endfor -%}
