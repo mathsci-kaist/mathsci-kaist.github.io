@@ -15,3 +15,6 @@
     {%- if p.scholar -%}
         <a target="data" class="ext" title="Google Scholar" href="https://scholar.google.com/citations?user={{p.scholar}}">📚</a>
     {%- endif -%}
+    {%- if p.update and (p.update|date('U') > (now|date('U') - 31536000)) -%}
+        <span class="update" title="Updated recently">🎈</span>
+    {%- endif -%}
