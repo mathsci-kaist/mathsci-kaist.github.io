@@ -18,6 +18,6 @@
     {%- if p.update -%}
         {%- set update_date = p.update ~ '01' | datetime('YYYYMMDD') -%}
         {%- if update_date > (now - timedelta(days=395)) -%}
-            <span class="update" title="Updated recently">🎈</span>
+            <span class="update" title="Updated: {{p.update}}">🎈</span>
         {%- endif -%}
     {%- endif -%}
