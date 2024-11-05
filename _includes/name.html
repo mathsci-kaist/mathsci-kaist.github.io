@@ -15,7 +15,9 @@
     {%- if p.scholar -%}
         <a target="data" class="ext" title="Google Scholar" href="https://scholar.google.com/citations?user={{p.scholar}}">📚</a>
     {%- endif -%}
-    {%- set update_date = p.update ~ '01' | datetime('YYYYMMDD') -%}
-    {%- if update_date > (now - timedelta(days=395)) -%}
-        <span class="update" title="Updated recently">🎈</span>
+    {%- if p.update -%}
+        {%- set update_date = p.update ~ '01' | datetime('YYYYMMDD') -%}
+        {%- if update_date > (now - timedelta(days=395)) -%}
+            <span class="update" title="Updated recently">🎈</span>
+        {%- endif -%}
     {%- endif -%}
