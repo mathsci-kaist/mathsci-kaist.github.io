@@ -16,8 +16,9 @@
         <a target="data" class="ext" title="Google Scholar" href="https://scholar.google.com/citations?user={{p.scholar}}">📚</a>
     {%- endif -%}
     {%- if p.update -%}
-        {%- set update_date = p.update ~ '01' | datetime('YYYYMMDD') -%}
-        {%- if update_date > (now - timedelta(days=395)) -%}
+        {%- assign update_date = p.update | append: '01' |plus:0 -%}
+        {%- assign one_year_ago = "now" | date: "%Y%m%d" | minus: 10000 -%}
+        {%- if update_date > one_year_ago -%}
             <span class="update" title="Updated: {{p.update}}">🎈</span>
         {%- endif -%}
     {%- endif -%}
