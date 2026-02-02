@@ -11,8 +11,15 @@ $section-headings-color: #004191;
 .engname {word-break:keep-all;vertical-align: super; font-size:.7em;font-weight:300; }
 .cl {font-size:.7em;font-weight:300;float:right;}
 
-.alumniindex {padding-bottom: .5vh;}
+.alumniindex {padding: .7rem 0;border-bottom: 1px solid hsl(0,0%,88%);}
+.alumniindex:nth-of-type(even) {background: hsl(0,0%,98%);}
 .alumniindex_thesis {padding-top:.5vh;padding-bottom: 0.5vh;border-bottom: 1px dashed #5fbeeb;}
+
+.alumni-search {display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin:0 0 1rem 0;}
+.alumni-search-label {font-weight:600;color:hsl(0,0%,20%);}
+.alumni-search-input {flex:1 1 18rem;min-width:12rem;padding:.45rem .6rem;border:1px solid hsl(0,0%,75%);border-radius:.35rem;}
+.alumni-search-input:focus {outline:2px solid #5fbeeb;outline-offset:1px;}
+.alumni-search-count {font-size:.85em;color:hsl(0,0%,40%);}
 
 .ext {font-size:.9em;vertical-align: top;}
 .thesis {font-style:italic;font-weight:300;font-size:0.9em;text-align: right;}
