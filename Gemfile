@@ -41,3 +41,7 @@ gem "wdm", "~> 0.1.0", :install_if => Gem.win_platform?
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 gem 'webrick', '~> 1.8', '>= 1.8.1'
+gem "csv"
+gem "base64"
+gem "logger"
+gem "bigdecimal"
