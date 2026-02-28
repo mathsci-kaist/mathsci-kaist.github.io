@@ -1,2 +1,0 @@
-#!/bin/sh
-linkchecker -r 1 https://mathsci-kaist.github.io --no-status --check-extern --file-output=html/link.html 
