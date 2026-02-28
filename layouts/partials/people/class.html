@@ -1,0 +1,11 @@
+{{- $bs := .bs -}}
+{{- $ms := .ms -}}
+{{- $phd := .phd -}}
+{{- $advisor := .advisor -}}
+{{- $advisor2 := .advisor2 -}}
+<span class="cl">
+  {{ if $bs }}<a href="undergraduate.html#{{ $bs }}">학{{ $bs }}학번</a>{{ end }}
+  {{ if $ms }} <a href="master.html#{{ $ms }}">석{{ $ms }}학번</a>{{ end }}
+  {{ if $phd }} <a href="phd.html#{{ $phd }}">박{{ $phd }}년졸업</a>{{ end }}
+  {{ if $advisor }} (<a href="advisor.html#{{ $advisor }}">{{ $advisor }}</a>{{ if $advisor2 }}, <a href="advisor.html#{{ $advisor2 }}">{{ $advisor2 }}</a>{{ end }}){{ end }}
+</span>

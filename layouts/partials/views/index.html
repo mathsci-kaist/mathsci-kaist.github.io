@@ -1,0 +1,9 @@
+{{- $people := partial "people/load.html" . -}}
+{{- $a := sort (where $people "korname" "gt" "zzzzz") "korname" -}}
+{{- $b := sort (where $people "korname" "le" "zzzzz") "korname" -}}
+{{- range $a -}}
+  {{ partial "people/person.html" (dict "p" . "bs" .bs "ms" .ms "phd" .phd "advisor" .advisor "advisor2" .advisor2) }}
+{{- end -}}
+{{- range $b -}}
+  {{ partial "people/person.html" (dict "p" . "bs" .bs "ms" .ms "phd" .phd "advisor" .advisor "advisor2" .advisor2) }}
+{{- end -}}

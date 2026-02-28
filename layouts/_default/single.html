@@ -1,0 +1,15 @@
+{{ define "main" }}
+{{ .Content }}
+{{ $view := .Params.view }}
+{{ if eq $view "bs" }}
+  {{ partial "views/bs.html" . }}
+{{ else if eq $view "ms" }}
+  {{ partial "views/ms.html" . }}
+{{ else if eq $view "phd" }}
+  {{ partial "views/phd.html" . }}
+{{ else if eq $view "advisor" }}
+  {{ partial "views/advisor.html" . }}
+{{ else if eq $view "latest" }}
+  {{ partial "views/latest.html" . }}
+{{ end }}
+{{ end }}

@@ -1,0 +1,12 @@
+{{- $p := .p -}}
+{{- if $p.website -}}<a target="data" href="{{ $p.website }}">{{- end -}}
+{{ $p.korname }}{{ if $p.engname }} <span class="engname">{{ $p.engname }}</span>{{ end }}
+{{- if $p.website -}}</a>{{- end -}}
+{{- if $p.mathgen -}} <a target="data" class="ext" title="Mathematics Genealogy" href="https://www.mathgenealogy.org/id.php?id={{ $p.mathgen }}">🎓</a>{{- end -}}
+{{- if $p.mrauthid -}} <a target="data" class="ext" title="MathSciNet" href="https://mathscinet.ams.org/mathscinet/MRAuthorID/{{ $p.mrauthid }}">🌿</a>{{- end -}}
+{{- if $p.scholar -}} <a target="data" class="ext" title="Google Scholar" href="https://scholar.google.com/citations?user={{ $p.scholar }}">📚</a>{{- end -}}
+{{- if $p.update -}}
+  {{- $updateDate := int (printf "%s01" $p.update) -}}
+  {{- $oneYearAgo := sub (int (dateFormat "20060102" now)) 10000 -}}
+  {{- if gt $updateDate $oneYearAgo -}} <span class="update" title="Updated: {{ $p.update }}">🎈</span>{{- end -}}
+{{- end -}}

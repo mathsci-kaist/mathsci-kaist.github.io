@@ -1,0 +1,7 @@
+{{- $p := .p -}}
+<div class="alumniindex">
+  <div class="row">
+    <div class="col-sm-4 name">{{ partial "people/name.html" (dict "p" $p) }}</div>
+    <div class="col-sm-8">{{ $p.aff | plainify }} {{ partial "people/class.html" . }}</div>
+  </div>
+</div>

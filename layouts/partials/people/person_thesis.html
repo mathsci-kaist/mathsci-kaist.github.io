@@ -1,0 +1,17 @@
+{{- $p := .p -}}
+<div class="alumniindex_thesis">
+  <div class="row">
+    <div class="col-sm-4 name">{{ partial "people/name.html" (dict "p" $p) }}</div>
+    <div class="col-sm-8">{{ $p.aff | plainify }} {{ partial "people/class.html" . }}</div>
+  </div>
+  {{ if $p.thesis }}
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-8 thesis">
+        {{ if $p.handle }}<a target="target" href="http://hdl.handle.net/10203/{{ $p.handle }}">{{ end }}
+        {{ $p.thesis | safeHTML }}
+        {{ if $p.handle }}</a>{{ end }}
+      </div>
+    </div>
+  {{ end }}
+</div>

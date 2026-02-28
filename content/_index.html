@@ -1,0 +1,44 @@
+---
+title: "전체"
+url: "/"
+view: "index"
+---
+<h1 id="all" class="clearfix">KAIST 수리과학과 학계 동문</h1>
+<div class="alumni-search">
+  <label for="alumni-filter" class="alumni-search-label">빠른 검색</label>
+  <input id="alumni-filter" class="alumni-search-input" type="search" placeholder="이름, 소속, 지도교수, 학번으로 검색" autocomplete="off">
+  <span id="alumni-filter-count" class="alumni-search-count" aria-live="polite"></span>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var input = document.getElementById("alumni-filter");
+    var count = document.getElementById("alumni-filter-count");
+    if (!input || !count) return;
+
+    var items = Array.prototype.slice.call(document.querySelectorAll(".alumniindex"));
+    var total = items.length;
+
+    function normalize(text) {
+      return text.replace(/\s+/g, " ").trim().toLowerCase();
+    }
+
+    function updateCount(visible) {
+      count.textContent = "표시 " + visible + " / " + total;
+    }
+
+    function filter() {
+      var query = normalize(input.value);
+      var visible = 0;
+      items.forEach(function (item) {
+        var hay = normalize(item.textContent);
+        var show = !query || hay.indexOf(query) !== -1;
+        item.style.display = show ? "" : "none";
+        if (show) visible += 1;
+      });
+      updateCount(visible);
+    }
+
+    input.addEventListener("input", filter);
+    updateCount(total);
+  });
+</script>

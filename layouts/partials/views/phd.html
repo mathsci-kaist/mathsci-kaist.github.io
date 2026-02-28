@@ -1,0 +1,11 @@
+{{- $people := partial "people/load.html" . -}}
+{{- $years := slice -}}
+{{- range $people -}}{{ if .phd }}{{ $years = $years | append .phd }}{{ end }}{{- end -}}
+{{- range (sort (uniq $years) "value" "desc") -}}
+  <h2 id="{{ . }}">박사 {{ . }}년 졸업</h2>
+  {{- $group := where $people "phd" . -}}
+  {{- $a := sort (where $group "korname" "gt" "zzzzz") "korname" -}}
+  {{- $b := sort (where $group "korname" "le" "zzzzz") "korname" -}}
+  {{- range $a -}}{{ partial "people/person_thesis.html" (dict "p" . "bs" .bs "ms" .ms "advisor" .advisor "advisor2" .advisor2) }}{{- end -}}
+  {{- range $b -}}{{ partial "people/person_thesis.html" (dict "p" . "bs" .bs "ms" .ms "advisor" .advisor "advisor2" .advisor2) }}{{- end -}}
+{{- end -}}

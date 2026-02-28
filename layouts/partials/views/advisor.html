@@ -1,0 +1,38 @@
+{{- $people := partial "people/load.html" . -}}
+{{- $all := slice -}}
+{{- range $people -}}
+  {{- if .advisor }}{{ $all = $all | append .advisor }}{{ end -}}
+  {{- if .advisor2 }}{{ $all = $all | append .advisor2 }}{{ end -}}
+{{- end -}}
+{{- $uniq := uniq $all -}}
+{{- $a := slice -}}
+{{- $b := slice -}}
+{{- range $uniq -}}
+  {{- if . -}}
+    {{- if gt . "zzzzz" -}}
+      {{- $a = $a | append . -}}
+    {{- else if lt . "zzzzz" -}}
+      {{- $b = $b | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $a = sort $a -}}
+{{- $b = sort $b -}}
+{{- range $a -}}
+  <h2 id="{{ . }}">{{ . }} 교수</h2>
+  {{- $group := slice -}}
+  {{- range (where $people "advisor" .) -}}{{ $group = $group | append . }}{{- end -}}
+  {{- range (where $people "advisor2" .) -}}{{ $group = $group | append . }}{{- end -}}
+  {{- range (sort $group "phd") -}}
+    {{ partial "people/person_thesis.html" (dict "p" . "bs" .bs "ms" .ms "phd" .phd) }}
+  {{- end -}}
+{{- end -}}
+{{- range $b -}}
+  <h2 id="{{ . }}">{{ . }} 교수</h2>
+  {{- $group := slice -}}
+  {{- range (where $people "advisor" .) -}}{{ $group = $group | append . }}{{- end -}}
+  {{- range (where $people "advisor2" .) -}}{{ $group = $group | append . }}{{- end -}}
+  {{- range (sort $group "phd") -}}
+    {{ partial "people/person_thesis.html" (dict "p" . "bs" .bs "ms" .ms "phd" .phd) }}
+  {{- end -}}
+{{- end -}}

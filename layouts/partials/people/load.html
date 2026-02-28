@@ -1,0 +1,18 @@
+{{- $rows := readFile "assets/data/people.csv" | transform.Unmarshal (dict "delimiter" ",") -}}
+{{- $headers := index $rows 0 -}}
+{{- $people := slice -}}
+{{- range after 1 $rows -}}
+  {{- $row := . -}}
+  {{- $p := dict -}}
+  {{- range $i, $h := $headers -}}
+    {{- $v := "" -}}
+    {{- if lt $i (len $row) -}}
+      {{- $v = index $row $i -}}
+    {{- end -}}
+    {{- $p = merge $p (dict $h $v) -}}
+  {{- end -}}
+  {{- if not (index $p "hide") -}}
+    {{- $people = $people | append $p -}}
+  {{- end -}}
+{{- end -}}
+{{- return $people -}}

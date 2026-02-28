@@ -1,0 +1,12 @@
+baseURL = "https://mathsci-kaist.github.io/"
+languageCode = "ko-KR"
+title = "KAIST 수리과학과 학계 동문"
+disableKinds = ["taxonomy", "term", "rss"]
+
+[params]
+  description = "KAIST 수리과학과 학계 동문 정보를 수집 정리합니다."
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

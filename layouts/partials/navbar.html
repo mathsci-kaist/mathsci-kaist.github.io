@@ -1,0 +1,7 @@
+<ul class="nav nav-tabs">
+  {{ range site.Data.menu.menu }}
+    <li class="nav-item">
+      <a class="nav-link{{ if eq .url $.RelPermalink }} active{{ end }}"{{ if eq .url $.RelPermalink }} aria-current="page"{{ end }} href="{{ .url }}">{{ .title }}</a>
+    </li>
+  {{ end }}
+</ul>

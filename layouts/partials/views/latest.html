@@ -1,0 +1,10 @@
+{{- $people := partial "people/load.html" . -}}
+{{- $updates := sort (where $people "update" "gt" "202301") "update" "desc" -}}
+{{- $current := "" -}}
+{{- range $updates -}}
+  {{- if ne .update $current -}}
+    {{- $current = .update -}}
+    <h2>{{ slicestr $current 0 4 }}년 {{ slicestr $current 4 6 }}월</h2>
+  {{- end -}}
+  {{ partial "people/person.html" (dict "p" . "bs" .bs "ms" .ms "phd" .phd "advisor" .advisor "advisor2" .advisor2) }}
+{{- end -}}
