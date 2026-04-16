@@ -5,6 +5,8 @@
   {{- if ne .update $current -}}
     {{- $current = .update -}}
     <h2>{{ slicestr $current 0 4 }}년 {{ slicestr $current 4 6 }}월</h2>
+    {{- range (partial "people/sorted.html" (dict "people" (where $updates "update" $current))) -}}
+      {{ partial "people/person.html" (dict "p" . "bs" .bs "ms" .ms "phd" .phd "advisor" .advisor "advisor2" .advisor2) }}
+    {{- end -}}
   {{- end -}}
-  {{ partial "people/person.html" (dict "p" . "bs" .bs "ms" .ms "phd" .phd "advisor" .advisor "advisor2" .advisor2) }}
 {{- end -}}

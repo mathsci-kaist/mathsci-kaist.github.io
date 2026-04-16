@@ -11,6 +11,16 @@
     {{- end -}}
     {{- $p = merge $p (dict $h $v) -}}
   {{- end -}}
+  {{- $displayEngName := strings.TrimSpace (printf "%s %s" (index $p "engfirst") (index $p "englast")) -}}
+  {{- $hasKorName := ne (strings.TrimSpace (index $p "korname")) "" -}}
+  {{- $p = merge $p (dict
+    "display_engname" $displayEngName
+    "sort_group" (cond $hasKorName "0" "1")
+    "sort_korname" (index $p "korname")
+    "sort_engfirst" (lower (index $p "engfirst"))
+    "sort_englast" (lower (index $p "englast"))
+    "sort_name_key" (lower (printf "%s\t%s\t%s" (index $p "englast") (index $p "engfirst") (index $p "korname")))
+  ) -}}
   {{- if not (index $p "hide") -}}
     {{- $people = $people | append $p -}}
   {{- end -}}

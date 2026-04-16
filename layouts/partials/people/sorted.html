@@ -1,0 +1,5 @@
+{{- $people := .people -}}
+{{- $korean := sort (where $people "sort_group" "0") "sort_korname" -}}
+{{- $nonKorean := sort (where $people "sort_group" "1") "sort_name_key" -}}
+{{- $sorted := append $nonKorean $korean -}}
+{{- return $sorted -}}

@@ -6,12 +6,13 @@ This document defines how to update alumni data safely and consistently.
 
 - Data file: `assets/data/people.csv`
 - Header (must not change):
-  - `korname,engname,update,aff,bs,ms,phd,advisor,advisor2,handle,debut,mathgen,mrauthid,scholar,website,thesis,hide`
+  - `korname,engfirst,englast,update,aff,bs,ms,phd,advisor,advisor2,handle,debut,mathgen,mrauthid,scholar,website,thesis,hide`
 
 ## Field definitions
 
 - `korname`: Korean name
-- `engname`: English name
+- `engfirst`: English given name(s); keep multi-word given names intact
+- `englast`: English family name
 - `update`: latest update time in `YYYYMM` (e.g. `202603`)
 - `aff`: current affiliation (department/unit)
 - `bs`: BS admission year (학번, not graduation year)
@@ -51,17 +52,18 @@ This document defines how to update alumni data safely and consistently.
 ## Editing and formatting rules
 
 - Keep one row per person.
-- Keep the column count exactly 17 for every row.
+- Keep the column count exactly 18 for every row.
 - Preserve CSV quoting where needed (commas/quotes in field text).
 - Keep Korean-name ordering convention used in the file.
 - Keep line endings consistent across the file (mixed line endings can break CSV parsing/builds).
+- Store English names only in `engfirst`/`englast`; do not add a combined full-name field.
 
 ## Post-update checks
 
 1. Duplicate check:
    - Confirm target name/English name appears exactly once.
 2. CSV integrity check:
-   - Parse CSV and verify all rows have 17 columns.
+   - Parse CSV and verify all rows have 18 columns.
 3. Rendering check:
    - `hugo` build should succeed.
    - Verify visibility on:
@@ -79,4 +81,3 @@ This document defines how to update alumni data safely and consistently.
 - [ ] `thesis` exactly matches handle page
 - [ ] `mathgen`/`mrauthid`/`scholar` confirmed or left blank
 - [ ] Duplicate/CSV/build checks passed
-

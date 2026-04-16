@@ -1,6 +1,12 @@
 {{- $p := .p -}}
 {{- if $p.website -}}<a target="data" href="{{ $p.website }}">{{- end -}}
-{{ $p.korname }}{{ if $p.engname }} <span class="engname">{{ $p.engname }}</span>{{ end }}
+{{- if and $p.korname $p.display_engname -}}
+  {{- $p.korname }} <span class="engname">{{ $p.display_engname }}</span>
+{{- else if $p.korname -}}
+  {{- $p.korname -}}
+{{- else if $p.display_engname -}}
+  {{- $p.display_engname -}}
+{{- end -}}
 {{- if $p.website -}}</a>{{- end -}}
 {{- if $p.mathgen -}} <a target="data" class="ext" title="Mathematics Genealogy" href="https://www.mathgenealogy.org/id.php?id={{ $p.mathgen }}">🎓</a>{{- end -}}
 {{- if $p.mrauthid -}} <a target="data" class="ext" title="MathSciNet" href="https://mathscinet.ams.org/mathscinet/MRAuthorID/{{ $p.mrauthid }}">🌿</a>{{- end -}}

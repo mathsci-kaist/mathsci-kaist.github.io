@@ -4,8 +4,5 @@
 {{- range (sort (uniq $years) "value" "desc") -}}
   <h2 id="{{ . }}">석사 {{ . }}학번</h2>
   {{- $group := where $people "ms" . -}}
-  {{- $a := sort (where $group "korname" "gt" "zzzzz") "korname" -}}
-  {{- $b := sort (where $group "korname" "le" "zzzzz") "korname" -}}
-  {{- range $a -}}{{ partial "people/person.html" (dict "p" . "bs" .bs "phd" .phd) }}{{- end -}}
-  {{- range $b -}}{{ partial "people/person.html" (dict "p" . "bs" .bs "phd" .phd) }}{{- end -}}
+  {{- range (partial "people/sorted.html" (dict "people" $group)) -}}{{ partial "people/person.html" (dict "p" . "bs" .bs "phd" .phd) }}{{- end -}}
 {{- end -}}
