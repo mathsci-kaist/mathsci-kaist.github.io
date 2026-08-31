@@ -1,5 +1,5 @@
 baseURL = "https://mathsci-kaist.github.io/"
-languageCode = "ko-KR"
+locale = "ko-KR"
 title = "KAIST 수리과학과 학계 동문"
 disableKinds = ["taxonomy", "term", "rss"]
 
