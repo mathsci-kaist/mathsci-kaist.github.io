@@ -13,7 +13,7 @@ This document defines how to update alumni data safely and consistently.
 - `korname`: Korean name
 - `engfirst`: English given name(s); keep multi-word given names intact
 - `englast`: English family name
-- `update`: latest update time in `YYYYMM` (e.g. `202603`)
+- `update`: `YYYYMM` of when the person moved to their current institution (e.g. `202603`). This is the job-move date, **not** the date the row was edited. Set it only on an actual institution change; do not change it for homepage/URL fixes, department renames, promotions, or other info refreshes. If the move date can't be confirmed, leave it as is.
 - `aff`: current affiliation (department/unit)
 - `bs`: BS admission year (학번, not graduation year)
 - `ms`: MS admission year
@@ -76,6 +76,7 @@ This document defines how to update alumni data safely and consistently.
 ## Quick checklist
 
 - [ ] Row added/updated in `assets/data/people.csv`
+- [ ] `update` changed only if the person moved institutions (value = move month)
 - [ ] `debut == phd` (for PhD entries)
 - [ ] `handle` confirmed
 - [ ] `thesis` exactly matches handle page

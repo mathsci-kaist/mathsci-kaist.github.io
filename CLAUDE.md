@@ -27,7 +27,7 @@ There are no tests or linters. "Verification" for a data change means: `hugo --m
 1. `layouts/partials/people/load.html` — the only place the CSV is read (`readFile` + `transform.Unmarshal`, project-root-relative path, *not* the resource pipeline). It zips the header row against each data row into a map per person, so **CSV column names are the field names used throughout the templates**. Renaming a header renames the template field. It also derives `display_engname`, `sort_group`, and `sort_*` keys, and drops any row with a non-empty `hide`. All values are strings — year comparisons in templates are string comparisons.
 2. `layouts/partials/people/sorted.html` — canonical ordering: rows without a Korean name first (sorted by `englast/engfirst/korname`), then Korean-named rows by `korname`.
 3. `layouts/partials/views/*.html` — one partial per page view: `index`, `bs`, `ms`, `phd`, `advisor`, `latest`. Each calls `load.html` itself (the CSV is parsed once per view, not shared).
-4. `layouts/partials/people/person.html` / `person_thesis.html` — row renderers; `person_thesis.html` adds the thesis line linked to `hdl.handle.net/10203/<handle>`. `name.html` renders the name plus the external-link icons (🎓 mathgen, 🌿 mrauthid, 📚 scholar) and the 🎈 badge when `update` is within the last year.
+4. `layouts/partials/people/person.html` / `person_thesis.html` — row renderers; `person_thesis.html` adds the thesis line linked to `hdl.handle.net/10203/<handle>`. `name.html` renders the name plus the external-link icons (🎓 mathgen, 🌿 mrauthid, 📚 scholar) and the 🎈 badge when `update` (the move-in date) is within the last year.
 
 ### Wiring a page to a view
 
@@ -38,7 +38,7 @@ Nav tabs come from `data/menu.yml` (title + url); a new page needs an entry ther
 ### View-specific quirks worth knowing
 
 - `class.html` renders only the keys the caller passes in the dict, which is how each view suppresses its own axis (e.g. the PhD page omits the PhD link). When adding a view, pass the dict explicitly.
-- `views/latest.html` only shows people with `update` > `202301` (string compare).
+- `views/latest.html` only shows people with `update` > `202301` (string compare), i.e. people who moved to their current institution after January 2023.
 - `views/advisor.html` splits advisor names into two buckets by comparing against the literal `"zzzzz"` to get Korean names before/after Latin ones, then sorts each. Advisor grouping unions `advisor` and `advisor2`.
 - `thesis` is emitted with `safeHTML` (inline markup like `<sub>` is allowed); `aff` goes through `plainify`.
 - `debut` exists in the CSV but is currently unused by any template.
@@ -54,5 +54,5 @@ Styling: `assets/css/style.scss` compiled by Hugo (requires the extended build) 
 - `handle` is the bare KAIST thesis handle ID, not a URL. If `thesis` is set, `handle` must be set.
 - Mandatory gate for any newly added PhD row: open `http://hdl.handle.net/10203/<handle>` and confirm `thesis` matches the title there character for character.
 - Never guess `scholar`, `mrauthid`, or `mathgen` — leave blank if unconfirmed.
-- `update` is `YYYYMM`; bump it when refreshing a person's info so they surface on `/latest.html`.
+- `update` is `YYYYMM` and is the **date the person moved to their current institution** (job move), not the date the row was edited. Set it only when someone actually changes institution (use the real start month); leave it untouched for homepage/URL fixes, department renames, promotions, and other info refreshes. If the move date can't be found, leave `update` as is rather than guessing.
 - Check for duplicates (name should appear exactly once) after adding a row.
