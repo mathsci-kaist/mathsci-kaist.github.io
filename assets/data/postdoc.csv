@@ -1,3 +1,19 @@
-korname,engfirst,englast,update,aff,bs,ms,phd,advisor,advisor2,handle,debut,mathgen,mrauthid,scholar,website,thesis,hide,source
-송윤민,Yun Min,Song,202503,기초과학연구원(IBS) 의생명수학그룹 · KAIST 자연과학연구소,2015,,2025,김재경,,,2025,,,,https://sites.google.com/view/yun-min-song/home,,,https://www.ibs.re.kr/bimag/members/
-채지석,Jiseok,Chae,202603,KAIST 자연과학연구소 · 연세대학교 PDE & AI 연구실,2016,,2026,김동환,,,2026,,,,https://jsch8q.github.io/,,,https://jsch8q.github.io/cv/
+korname,engfirst,englast,update,aff,bs,ms,phd,advisor,advisor2,handle,debut,mathgen,mrauthid,scholar,website,thesis,hide,source,thesis_url
+강동엽,Dong Yeap,Kang,,KAIST 자연과학연구소,,2014,2020,엄상일,,,2020,,,,,Graph Decompositions and Related Extremal Problems,,https://sangil.dimag.kr/students/,https://library.kaist.ac.kr/search/detail/view.do?bibCtrlNo=907856&flag=dissertation
+강승민,Seungmin,Kang,202408,국립이론과학연구센터(NCTS) 수학부 (대만),,,2024,김용정,,,2024,,,,,,,https://ncts.ntu.edu.tw/people_detail.php?bgid=7&gid=440,
+권민성,Minseong,Kwon,202510,중국과학원 모닝사이드 수학센터 (중국),,,2025,황준묵,,,2025,,,,https://mskwonmath.github.io/,,,https://mskwonmath.github.io/cv.html,
+김준석,Junseok,Kim,202509,테크니온 수학과 (이스라엘),,2018,2025,백형렬,,,2025,,,,https://sites.google.com/view/jsk8818,,,https://sites.google.com/view/jsk8818,
+김태규,Taegyu,Kim,,고등과학원 수학부,,,2025,권순식,,,2025,,,,https://sites.google.com/view/taegyukim/,Blow-up dynamics to the Calogero-Moser derivative nonlinear Schrodinger equation,,https://www.kias.re.kr/kias/people/rsrchFellows/list.do?menuNo=408004&schoolsCd=M,https://library.kaist.ac.kr/search/detail/view.do?bibCtrlNo=1142958&flag=dissertation
+김한솔,Hansol,Kim,202609,아주대학교 수학과,,,2024,임보해,,,2024,,,,https://sites.google.com/view/hansol-kim/,(The) Mordell-Weil group structures of elliptic curves and automorphism groups of abelian varieties,,https://sites.google.com/view/imbh/teaching-students,https://k-knowledge.kr/srch/read.jsp?id=259990600
+김호진,Hojin,Kim,202609,KAIST 자연과학연구소,,,2025,임보해,,,2025,,,,https://hojin.kim/,,,https://hojin.kim/,
+박준영,Junyoung,Park,202409,미시간대학교 생물통계학과 (미국),,,2024,박철우,안정연,,2024,,,,https://pjywang.github.io/,Kernel methods for compositional data and dimensionality reduction,,https://pjywang.github.io/assets/CV.pdf,https://k-knowledge.kr/srch/read.jsp?id=259990743
+송윤민,Yun Min,Song,202503,기초과학연구원(IBS) 의생명수학그룹 · KAIST 자연과학연구소,2015,,2025,김재경,,,2025,,,,https://sites.google.com/view/yun-min-song/home,,,https://www.ibs.re.kr/bimag/members/,
+엄태현,Taehyun,Eom,,GIST 수리과학과,2012,,2024,,,,2024,,,,https://taeheom.github.io/,,,https://sites.google.com/view/minkikim/home,
+오현섭,HyeonSeop,Oh,,KAIST 자연과학연구소,,,2026,강문진,,,2026,,,,https://sites.google.com/view/hyeonseop-oh/,,,https://mathsci.kaist.ac.kr/home/en/math-people/researchers/,
+은남현,Namhyun,Eun,,고등과학원 수학부,,,2026,강문진,,,2026,,,,https://sites.google.com/view/namhyun-eun,,,https://www.kias.re.kr/kias/people/rsrchFellows/list.do?menuNo=408004&schoolsCd=M,
+이동하,Dongha,Lee,202603,고등과학원 수학부,,,2026,백형렬,,,2026,,,,https://sites.google.com/view/dongha-lee/home,,,https://www.kias.re.kr/kias/people/rsrchFellows/list.do?menuNo=408004&schoolsCd=M,
+이원웅,Wonwoong,Lee,202509,전남대학교 랭글랜즈 함자성과 해석적 정수론 기초연구실,,,2023,임보해,,,2023,,,,https://sites.google.com/site/leewwmath,,,https://sites.google.com/view/imbh/teaching-students,
+이호빈,Ho Bin,Lee,,서울대학교 수리과학부,,,2025,강문진,,,2025,,,,,,,https://www.math.snu.ac.kr/bbs/page.php?hid=postdoc,
+채지석,Jiseok,Chae,202603,KAIST 자연과학연구소 · 연세대학교 PDE & AI 연구실,2016,,2026,김동환,,,2026,,,,https://jsch8q.github.io/,Two theoretical advances in generative models: minimax optimization methods with improved convergence and provable benign overfitting,,https://jsch8q.github.io/cv/,https://library.kaist.ac.kr/search/detail/view.do?bibCtrlNo=1151884&flag=dissertation
+한성호,Sungho,Han,202509,KAIST 자연과학연구소,,2020,2025,강문진,,,2025,,,,,Time-asymptotic stability of viscous–dispersive shock and composite wave structures for the one-dimensional compressible Navier–Stokes–Korteweg system,,https://mathsci.kaist.ac.kr/home/en/math-people/researchers/,https://library.kaist.ac.kr/search/detail/view.do?bibCtrlNo=1142964&flag=dissertation
+홍기훈,Kihun,Hong,,KAIST 자연과학연구소,,,2026,황강욱,,,2026,,,,,Vertical federated learning supporting flexible alignment and labeling scenarios,,https://mathsci.kaist.ac.kr/home/en/math-people/researchers/,https://library.kaist.ac.kr/search/detail/view.do?bibCtrlNo=1151886&flag=dissertation

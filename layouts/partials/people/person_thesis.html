@@ -5,12 +5,14 @@
     <div class="col-sm-8">{{ $p.aff | plainify }} {{ partial "people/class.html" . }}</div>
   </div>
   {{ if $p.thesis }}
+    {{- $thesisURL := $p.thesis_url -}}
+    {{- if $p.handle -}}{{- $thesisURL = printf "http://hdl.handle.net/10203/%s" $p.handle -}}{{- end -}}
     <div class="row">
       <div class="col-sm-4"></div>
       <div class="col-sm-8 thesis">
-        {{ if $p.handle }}<a target="target" href="http://hdl.handle.net/10203/{{ $p.handle }}">{{ end }}
+        {{ if $thesisURL }}<a target="target" href="{{ $thesisURL }}">{{ end }}
         {{ $p.thesis | safeHTML }}
-        {{ if $p.handle }}</a>{{ end }}
+        {{ if $thesisURL }}</a>{{ end }}
       </div>
     </div>
   {{ end }}
