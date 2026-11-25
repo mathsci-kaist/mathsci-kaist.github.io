@@ -6,7 +6,7 @@ This document defines how to update alumni data safely and consistently.
 
 - Data file: `assets/data/people.csv`
 - Header (must not change):
-  - `korname,engfirst,englast,update,aff,bs,ms,phd,advisor,advisor2,handle,debut,mathgen,mrauthid,scholar,website,thesis,hide`
+  - `korname,engfirst,englast,update,aff,bs,ms,phd,advisor,advisor2,handle,debut,mathgen,mrauthid,scholar,website,thesis,hide,country`
 
 ## Field definitions
 
@@ -15,6 +15,7 @@ This document defines how to update alumni data safely and consistently.
 - `englast`: English family name
 - `update`: `YYYYMM` of when the person moved to their current institution (e.g. `202603`). This is the job-move date, **not** the date the row was edited. Set it only on an actual institution change; do not change it for homepage/URL fixes, department renames, promotions, or other info refreshes. If the move date can't be confirmed, leave it as is.
 - `aff`: current affiliation (department/unit)
+- `country`: country or region of the campus or institution listed in `aff`. Use the Korean label already used by the directory. Leave it blank if the location cannot be verified.
 - `bs`: BS admission year (학번, not graduation year)
 - `ms`: MS admission year
 - `phd`: PhD graduation year
@@ -52,7 +53,7 @@ This document defines how to update alumni data safely and consistently.
 ## Editing and formatting rules
 
 - Keep one row per person.
-- Keep the column count exactly 18 for every row.
+- Keep the column count exactly 19 for every row.
 - Preserve CSV quoting where needed (commas/quotes in field text).
 - Keep Korean-name ordering convention used in the file.
 - Keep line endings consistent across the file (mixed line endings can break CSV parsing/builds).
@@ -63,7 +64,7 @@ This document defines how to update alumni data safely and consistently.
 1. Duplicate check:
    - Confirm target name/English name appears exactly once.
 2. CSV integrity check:
-   - Parse CSV and verify all rows have 18 columns.
+   - Parse CSV and verify all rows have 19 columns.
 3. Rendering check:
    - `hugo` build should succeed.
    - Verify visibility on:

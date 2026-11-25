@@ -26,3 +26,5 @@
 - GitHub Pages `Source`는 반드시 **GitHub Actions**로 설정하세요.
 - 이 저장소는 `.github/workflows/hugo.yml`에서 `hugo --minify`로 빌드 후 `public/`를 배포합니다.
 - `Deploy from a branch`(root)로 설정하면 README가 첫 화면으로 보일 수 있습니다.
+
+두 명단의 국가별 페이지는 각 CSV의 `country` 열을 사용합니다. 소속 기관의 실제 캠퍼스 소재지를 기준으로 한국어 국가·지역명을 입력합니다.

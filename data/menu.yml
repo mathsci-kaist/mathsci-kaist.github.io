@@ -10,5 +10,7 @@ menu:
   url: /phd.html
 - title: 박사지도교수별
   url: /advisor.html
+- title: 국가별
+  url: /country.html
 - title: 새로운 소식
   url: /latest.html

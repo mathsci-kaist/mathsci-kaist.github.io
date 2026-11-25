@@ -49,7 +49,7 @@ Styling: `assets/css/style.scss` compiled by Hugo (requires the extended build) 
 
 `PEOPLE_CSV_RULES.md` is normative — read it before touching `assets/data/people.csv`. The rules that matter most:
 
-- Header must stay exactly 18 columns, and every row must have 18 columns.
+- Header must stay exactly 19 columns, and every row must have 19 columns.
 - `bs`/`ms` are **admission** years (학번); `phd` is the **graduation** year. `debut` must equal `phd` for PhD entries.
 - `handle` is the bare KAIST thesis handle ID, not a URL. If `thesis` is set, `handle` must be set.
 - Mandatory gate for any newly added PhD row: open `http://hdl.handle.net/10203/<handle>` and confirm `thesis` matches the title there character for character.

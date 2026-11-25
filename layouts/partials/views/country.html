@@ -1,0 +1,20 @@
+{{- $people := partial "people/load.html" . -}}
+{{- $countries := slice -}}
+{{- range $people -}}
+  {{- if .country -}}{{- $countries = $countries | append .country -}}{{- end -}}
+{{- end -}}
+{{- $countries = sort (uniq $countries) -}}
+{{- if in $countries "대한민국" -}}
+  {{- $countries = union (slice "대한민국") (complement (slice "대한민국") $countries) -}}
+{{- end -}}
+{{- if where $people "country" "" -}}
+  {{- $countries = $countries | append "" -}}
+{{- end -}}
+
+{{- range $countries }}
+  {{- $members := where $people "country" . }}
+  <h2 id="{{ . | default "미확인" }}">{{ . | default "미확인" }} ({{ len $members }}명)</h2>
+  {{- range (partial "people/sorted.html" (dict "people" $members)) -}}
+    {{- partial "people/person.html" (dict "p" . "bs" .bs "ms" .ms "phd" .phd "advisor" .advisor "advisor2" .advisor2) -}}
+  {{- end -}}
+{{- end -}}
