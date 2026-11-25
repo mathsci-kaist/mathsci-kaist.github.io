@@ -1,4 +1,5 @@
-{{- $rows := readFile "assets/data/people.csv" | transform.Unmarshal (dict "delimiter" ",") -}}
+{{- $file := cond (eq .Section "postdoc") "assets/data/postdoc.csv" "assets/data/people.csv" -}}
+{{- $rows := readFile $file | transform.Unmarshal (dict "delimiter" ",") -}}
 {{- $headers := index $rows 0 -}}
 {{- $people := slice -}}
 {{- range after 1 $rows -}}

@@ -5,4 +5,6 @@
   <h2 id="{{ . }}">석사 {{ . }}학번</h2>
   {{- $group := where $people "ms" . -}}
   {{- range (partial "people/sorted.html" (dict "people" $group)) -}}{{ partial "people/person.html" (dict "p" . "bs" .bs "phd" .phd) }}{{- end -}}
+{{- else -}}
+  {{- if eq .Section "postdoc" }}<p>등록된 석사 동문이 없습니다.</p>{{ end -}}
 {{- end -}}

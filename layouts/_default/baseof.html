@@ -1,11 +1,13 @@
+{{- $directoryTitle := .CurrentSection.Params.directory_title | default site.Title -}}
+{{- $description := .CurrentSection.Params.directory_description | default site.Params.description -}}
 <!DOCTYPE html>
 <html lang="ko-KR">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
-    <meta name="description" content="{{ site.Params.description }}">
+    <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ $directoryTitle }}</title>
+    <meta name="description" content="{{ $description }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     {{ $style := resources.Get "css/style.scss" | toCSS | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
@@ -14,8 +16,8 @@
     <a id="skip-to-content" href="#content">Skip to the content.</a>
 
     <header class="page-header" role="banner">
-      <h1 class="project-name">{{ site.Title }}</h1>
-      <h2 class="project-tagline">{{ site.Params.description }}</h2>
+      <h1 class="project-name">{{ $directoryTitle }}</h1>
+      <h2 class="project-tagline">{{ $description }}</h2>
     </header>
 
     {{ partial "navbar.html" . }}

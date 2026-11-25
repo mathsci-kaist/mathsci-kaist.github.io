@@ -15,6 +15,12 @@
 - `debut`는 박사학위 연도(`phd`)와 동일하게 입력
 - `scholar`, `mrauthid`, `mathgen`은 확인된 값만 입력 (미확정 시 공란)
 
+## 박사후연구원 동문
+
+`/postdoc/`은 `assets/data/postdoc.csv`를 사용합니다. 재직이 확인된 동문을 한 줄씩 기록합니다.
+공통 열의 의미는 교수 동문 데이터와 같으며 `update`에는 현 소속에서 박사후연구를 시작한 월(YYYYMM)을 입력합니다.
+`source`에는 재직 근거 URL을 기록합니다. 재직 종료를 확인하면 해당 행을 삭제하거나 `hide`에 값을 입력합니다.
+
 ## GitHub Pages 배포 설정
 
 - GitHub Pages `Source`는 반드시 **GitHub Actions**로 설정하세요.

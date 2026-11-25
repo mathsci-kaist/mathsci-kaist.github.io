@@ -1,7 +1,10 @@
+{{- $prefix := "" -}}
+{{- if eq .Section "postdoc" -}}{{- $prefix = "/postdoc" -}}{{- end -}}
 <ul class="nav nav-tabs">
   {{ range hugo.Data.menu.menu }}
+    {{ $url := printf "%s%s" $prefix .url }}
     <li class="nav-item">
-      <a class="nav-link{{ if eq .url $.RelPermalink }} active{{ end }}"{{ if eq .url $.RelPermalink }} aria-current="page"{{ end }} href="{{ .url }}">{{ .title }}</a>
+      <a class="nav-link{{ if eq $url $.RelPermalink }} active{{ end }}"{{ if eq $url $.RelPermalink }} aria-current="page"{{ end }} href="{{ $url }}">{{ .title }}</a>
     </li>
   {{ end }}
 </ul>
